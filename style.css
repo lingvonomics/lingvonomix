@@ -1,7 +1,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fb;
-    color: #333;
+    background-color: #f4f6fa;
+    color: #2c3e50;
     margin: 0;
     padding: 20px;
     display: flex;
@@ -9,52 +9,143 @@ body {
 }
 
 .app-container {
-    max-width: 600px;
+    max-width: 650px;
     width: 100%;
 }
 
 header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 h1 {
     color: #1a73e8;
     margin-bottom: 5px;
+    font-size: 2.2rem;
 }
 
 .subtitle {
-    color: #666;
+    color: #7f8c8d;
     margin: 0;
 }
 
+/* Экраны приложения */
+.screen {
+    transition: all 0.3s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Прогресс-бар */
+.stats-card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    margin-bottom: 30px;
+}
+
+.stats-card h3 { margin-top: 0; margin-bottom: 10px; }
+
+.progress-bar-container {
+    background: #eaedf2;
+    border-radius: 10px;
+    height: 12px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #1a73e8, #34a853);
+    height: 100%;
+    transition: width 0.4s ease;
+}
+
+#stats-text { font-size: 0.9rem; color: #555; margin: 0; }
+
+/* Сетка уроков */
+.lessons-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lesson-card-preview {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.lesson-card-preview:hover:not(.locked) {
+    border-color: #1a73e8;
+    transform: translateY(-2px);
+}
+
+.lesson-card-preview.locked {
+    background: #fdfdfe;
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.lesson-card-preview h3 { margin: 10px 0 5px 0; color: #1e293b; }
+.lesson-card-preview p { margin: 0 0 15px 0; color: #64748b; font-size: 0.9rem; line-height: 1.5; }
+
+.start-btn { color: #1a73e8; font-weight: bold; font-size: 0.9rem; }
+
+.lesson-status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    background: #f1f5f9;
+    border-radius: 20px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.lesson-status.in-progress { background: #e3f2fd; color: #1a73e8; }
+.lesson-status.completed { background: #e6f4ea; color: #137333; }
+
+/* Стили внутри урока */
 .lesson-card {
     background: white;
     padding: 30px;
     border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
     line-height: 1.6;
 }
 
-h2 {
-    color: #2c3e50;
-    margin-top: 0;
-    border-bottom: 2px solid #f0f2f5;
-    padding-bottom: 10px;
+.back-btn {
+    background: none;
+    border: none;
+    color: #1a73e8;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding: 0;
 }
 
-/* Стили для интерактивных слов */
 .word {
     border-bottom: 2px dashed #1a73e8;
     cursor: pointer;
     background-color: #f0f7ff;
     padding: 0 2px;
-    transition: all 0.2s ease;
 }
 
-.word:hover {
-    background-color: #e8f0fe;
-    color: #1a73e8;
+.word.learned {
+    border-bottom-style: solid;
+    background-color: #e6f4ea;
+    border-bottom-color: #34a853;
 }
 
 .word.active {
@@ -63,7 +154,6 @@ h2 {
     border-bottom-color: transparent;
 }
 
-/* Коробка для перевода */
 .translation-box {
     margin-top: 25px;
     padding: 15px;
@@ -71,5 +161,4 @@ h2 {
     border-left: 4px solid #1a73e8;
     border-radius: 4px;
     font-size: 0.95em;
-    transition: background-color 0.3s ease;
 }

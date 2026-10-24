@@ -3,57 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoLang - Learn Economics</title>
+    <title>Lingvonomix</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="app-container">
-        <header>
-            <h1>EcoLang 📈</h1>
-            <p class="subtitle">Master Economics through English</p>
-        </header>
+        
+        <!-- ================= ГЛАВНАЯ СТРАНИЦА ================= -->
+        <div id="main-page" class="screen">
+            <header>
+                <h1>Lingvonomix 📈</h1>
+                <p class="subtitle">Your vocabulary & concept tracker</p>
+            </header>
 
-        <main class="lesson-card">
-            <h2>Lesson 1: Introduction to Economics</h2>
-            
-            <p><strong>1. What is economics?</strong><br>
-            Economics is a <span class="word" data-translation="Общественная наука — изучает поведение людей и общества.">social science</span> that studies the production, distribution and consumption of <span class="word" data-translation="Товары и услуги — физические вещи и действия, приносящие пользу.">goods and services</span>.</p>
-
-            <p>Today, modern economists tend to divide themselves into two schools: micro- and macroeconomics.</p>
-
-            <p><strong>2. Micro- and macroeconomics</strong><br>
-            Microeconomics is a branch of economics that studies individual consumers, households, specific companies, and markets. Its key questions are: How is the price of a product formed? How does a firm maximize its profit?</p>
-            
-            <p>Macroeconomics, on the other hand, studies the overall economy as a whole. Its key questions are: What is the national inflation rate? How is the <span class="word" data-translation="ВВП (Валовой Внутренний Продукт) — общая стоимость всех товаров и услуг, произведенных в стране за год.">Gross Domestic Product (GDP)</span> changing?</p>
-
-            <p><strong>3. Bonus: Historical background - The invisible hand</strong><br>
-            The <span class="word" data-translation="Невидимая рука рынка — метафора о том, что личная выгода двигает общество вперед.">invisible hand</span> is a metaphor for the principle that people act out of personal gain, yet their <span class="word" data-translation="Стремление / погоня — активные действия ради достижения цели.">pursuit</span> leads them to benefit more for society than they've originally intended. Because every producer pursues their own interests, the beneficial social order arises as an <span class="word" data-translation="Непредвиденное последствие — результат действий, который не планировался изначально.">unintended consequence</span> of individuals' actions, since the path to fulfilling their interests actually lies through satisfying someone else's needs. It is important to notice that the metaphor now serves as a theory of <span class="word" data-translation="Рыночное саморегулирование — способность рынка приходить в баланс без вмешательства государства.">market self-regulation</span> and is not a universal economic law but rather an occasional outcome in which a self-interested action frequently could lead to the greater good.</p>
-            
-            <p>The metaphor is inspired by a fragment from <span class="word" data-translation="Адам Смит — шотландский экономист и философ, 'отец' современной экономики.">Adam Smith's</span> 1776 book "An Inquiry into the Nature and Causes of the Wealth of Nations". In it, Adam Smith makes a mix of micro- and macroeconomic statements.</p>
-
-            <div class="translation-box" id="translationBox">
-                💡 <em>Click on any underlined word to see the translation and context!</em>
+            <div class="stats-card">
+                <h3>Your Progress</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="total-progress" style="width: 0%"></div>
+                </div>
+                <p id="stats-text">You have started your journey! 🚀</p>
             </div>
-        </main>
+
+            <h2>Available Courses</h2>
+            <div class="lessons-grid">
+                <!-- Карточка 1 -->
+                <div class="lesson-card-preview" onclick="openLesson()">
+                    <div class="lesson-status" id="lesson1-status-badge">Not started</div>
+                    <h3>Lesson 1: Introduction</h3>
+                    <p>Learn what economics is, the difference between micro and macro, and the myth of the Invisible Hand.</p>
+                    <span class="start-btn">Start Lesson →</span>
+                </div>
+
+                <!-- Карточка 2 (Заглушка для будущего) -->
+                <div class="lesson-card-preview locked">
+                    <div class="lesson-status">Locked 🔒</div>
+                    <h3>Lesson 2: Supply & Demand</h3>
+                    <p>Explore market forces, curves, shortages, and how prices find their perfect balance.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= СТРАНИЦА УРОКА ================= -->
+        <div id="lesson-page" class="screen hidden">
+            <button class="back-btn" onclick="goBack()">← Back to Dashboard</button>
+            
+            <main class="lesson-card">
+                <h2>Lesson 1: Introduction to Economics</h2>
+                
+                <p><strong>1. What is economics?</strong><br>
+                Economics is a <span class="word" data-id="w1" data-translation="Общественная наука — изучает поведение людей и общества.">social science</span> that studies the production, distribution and consumption of <span class="word" data-id="w2" data-translation="Товары и услуги — физические вещи и действия, приносящие пользу.">goods and services</span>.</p>
+
+                <p>Today, modern economists tend to divide themselves into two schools: micro- and macroeconomics.</p>
+
+                <p><strong>2. Micro- and macroeconomics</strong><br>
+                Microeconomics is a branch of economics that studies individual consumers, households, specific companies, and markets. Its key questions are: How is the price of a product formed? How does a firm maximize its profit?</p>
+                
+                <p>Macroeconomics, on the other hand, studies the overall economy as a whole. Its key questions are: What is the national inflation rate? How is the <span class="word" data-id="w3" data-translation="ВВП (Валовой Внутренний Продукт) — общая стоимость всех товаров и услуг, произведенных в стране за год.">Gross Domestic Product (GDP)</span> changing?</p>
+
+                <p><strong>3. Bonus: Historical background - The invisible hand</strong><br>
+                The <span class="word" data-id="w4" data-translation="Невидимая рука рынка — метафора о том, что личная выгода двигает общество вперед.">invisible hand</span> is a metaphor for the principle that people act out of personal gain, yet their <span class="word" data-id="w5" data-translation="Стремление / погоня — активные действия ради достижения цели.">pursuit</span> leads them to benefit more for society than they've originally intended. Because every producer pursues their own interests, the beneficial social order arises as an <span class="word" data-id="w6" data-translation="Непредвиденное последствие — результат действий, который не планировался изначально.">unintended consequence</span> of individuals' actions, since the path to fulfilling their interests actually lies through satisfying someone else's needs. It is important to notice that the metaphor now serves as a theory of <span class="word" data-id="w7" data-translation="Рыночное саморегулирование — способность рынка приходить в баланс без вмешательства государства.">market self-regulation</span> and is not a universal economic law but rather an occasional outcome in which a self-interested action frequently could lead to the greater good.</p>
+                
+                <p>The metaphor is inspired by a fragment from <span class="word" data-id="w8" data-translation="Адам Смит — шотландский экономист и философ, 'отец' современной экономики.">Adam Smith's</span> 1776 book "An Inquiry into the Nature and Causes of the Wealth of Nations". In it, Adam Smith makes a mix of micro- and macroeconomic statements.</p>
+
+                <div class="translation-box" id="translationBox">
+                    💡 <em>Click on any underlined word to save it to your vocabulary!</em>
+                </div>
+            </main>
+        </div>
+
     </div>
 
     <script>
-        // Простейший JavaScript для интерактива
+        // Инициализация прогресса из памяти браузера (localStorage)
+        let clickedWords = JSON.parse(localStorage.getItem('ecoLang_words')) || [];
+
+        // Обновление интерфейса при запуске
+        updateProgressUI();
+
+        // Логика клика по словам
         const words = document.querySelectorAll('.word');
         const box = document.getElementById('translationBox');
 
         words.forEach(word => {
+            const wordId = word.getAttribute('data-id');
+            
+            // Если слово уже учили ранее, визуально это отметим
+            if (clickedWords.includes(wordId)) {
+                word.classList.add('learned');
+            }
+
             word.addEventListener('click', () => {
-                // Убираем подсветку у других слов
                 words.forEach(w => w.classList.remove('active'));
-                // Добавляем текущему
                 word.classList.add('active');
-                // Выводим перевод в коробку снизу
+                
+                // Выводим перевод
                 box.innerHTML = `<strong>${word.innerText}:</strong> ${word.getAttribute('data-translation')}`;
                 box.style.background = '#e3f2fd';
+
+                // Сохраняем в прогресс, если слова там еще нет
+                if (!clickedWords.includes(wordId)) {
+                    clickedWords.push(wordId);
+                    word.classList.add('learned');
+                    localStorage.setItem('ecoLang_words', JSON.stringify(clickedWords));
+                    updateProgressUI();
+                }
             });
         });
+
+        // Функции навигации между экранами
+        function openLesson() {
+            document.getElementById('main-page').classList.add('hidden');
+            document.getElementById('lesson-page').classList.remove('hidden');
+            
+            // Запоминаем, что пользователь сейчас находится внутри урока 1
+            localStorage.setItem('ecoLang_currentLocation', 'lesson1');
+        }
+
+        function goBack() {
+            document.getElementById('lesson-page').classList.add('hidden');
+            document.getElementById('main-page').classList.remove('hidden');
+            
+            // Сбрасываем текущую локацию на дашборд
+            localStorage.setItem('ecoLang_currentLocation', 'dashboard');
+        }
+
+        // Авто-возврат туда, где остановился пользователь при перезагрузке страницы!
+        const lastLocation = localStorage.getItem('ecoLang_currentLocation');
+        if (lastLocation === 'lesson1') {
+            openLesson();
+        }
+
+        // Расчет и отрисовка прогресс-бара
+        function updateProgressUI() {
+            const totalWordsInLesson1 = 8;
+            const learnedCount = clickedWords.length;
+            const percentage = Math.min(Math.round((learnedCount / totalWordsInLesson1) * 100), 100);
+            
+            document.getElementById('total-progress').style.width = percentage + '%';
+            
+            const statsText = document.getElementById('stats-text');
+            const badge = document.getElementById('lesson1-status-badge');
+
+            if (percentage === 0) {
+                statsText.innerText = "Click on terms inside lessons to build vocabulary! 📚";
+                badge.innerText = "Not started";
+                badge.className = "lesson-status";
+            } else if (percentage < 100) {
+                statsText.innerText = `You learned ${learnedCount} economic terms (${percentage}% of Lesson 1). Keep going!`;
+                badge.innerText = "In Progress";
+                badge.className = "lesson-status in-progress";
+            } else {
+                statsText.innerText = "Amazing! You fully mastered Lesson 1! 🏆";
+                badge.innerText = "Completed 🎉";
+                badge.className = "lesson-status completed";
+            }
+        }
     </script>
 </body>
 </html>
