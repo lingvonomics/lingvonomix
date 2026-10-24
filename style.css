@@ -1,0 +1,75 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fb;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.app-container {
+    max-width: 600px;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #1a73e8;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #666;
+    margin: 0;
+}
+
+.lesson-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    line-height: 1.6;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    border-bottom: 2px solid #f0f2f5;
+    padding-bottom: 10px;
+}
+
+/* Стили для интерактивных слов */
+.word {
+    border-bottom: 2px dashed #1a73e8;
+    cursor: pointer;
+    background-color: #f0f7ff;
+    padding: 0 2px;
+    transition: all 0.2s ease;
+}
+
+.word:hover {
+    background-color: #e8f0fe;
+    color: #1a73e8;
+}
+
+.word.active {
+    background-color: #1a73e8;
+    color: white;
+    border-bottom-color: transparent;
+}
+
+/* Коробка для перевода */
+.translation-box {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #1a73e8;
+    border-radius: 4px;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoLang - Learn Economics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>EcoLang 📈</h1>
+            <p class="subtitle">Master Economics through English</p>
+        </header>
+
+        <main class="lesson-card">
+            <h2>Lesson 1: Introduction to Economics</h2>
+            
+            <p><strong>1. What is economics?</strong><br>
+            Economics is a <span class="word" data-translation="Общественная наука — изучает поведение людей и общества.">social science</span> that studies the production, distribution and consumption of <span class="word" data-translation="Товары и услуги — физические вещи и действия, приносящие пользу.">goods and services</span>.</p>
+
+            <p>Today, modern economists tend to divide themselves into two schools: micro- and macroeconomics.</p>
+
+            <p><strong>2. Micro- and macroeconomics</strong><br>
+            Microeconomics is a branch of economics that studies individual consumers, households, specific companies, and markets. Its key questions are: How is the price of a product formed? How does a firm maximize its profit?</p>
+            
+            <p>Macroeconomics, on the other hand, studies the overall economy as a whole. Its key questions are: What is the national inflation rate? How is the <span class="word" data-translation="ВВП (Валовой Внутренний Продукт) — общая стоимость всех товаров и услуг, произведенных в стране за год.">Gross Domestic Product (GDP)</span> changing?</p>
+
+            <p><strong>3. Bonus: Historical background - The invisible hand</strong><br>
+            The <span class="word" data-translation="Невидимая рука рынка — метафора о том, что личная выгода двигает общество вперед.">invisible hand</span> is a metaphor for the principle that people act out of personal gain, yet their <span class="word" data-translation="Стремление / погоня — активные действия ради достижения цели.">pursuit</span> leads them to benefit more for society than they've originally intended. Because every producer pursues their own interests, the beneficial social order arises as an <span class="word" data-translation="Непредвиденное последствие — результат действий, который не планировался изначально.">unintended consequence</span> of individuals' actions, since the path to fulfilling their interests actually lies through satisfying someone else's needs. It is important to notice that the metaphor now serves as a theory of <span class="word" data-translation="Рыночное саморегулирование — способность рынка приходить в баланс без вмешательства государства.">market self-regulation</span> and is not a universal economic law but rather an occasional outcome in which a self-interested action frequently could lead to the greater good.</p>
+            
+            <p>The metaphor is inspired by a fragment from <span class="word" data-translation="Адам Смит — шотландский экономист и философ, 'отец' современной экономики.">Adam Smith's</span> 1776 book "An Inquiry into the Nature and Causes of the Wealth of Nations". In it, Adam Smith makes a mix of micro- and macroeconomic statements.</p>
+
+            <div class="translation-box" id="translationBox">
+                💡 <em>Click on any underlined word to see the translation and context!</em>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Простейший JavaScript для интерактива
+        const words = document.querySelectorAll('.word');
+        const box = document.getElementById('translationBox');
+
+        words.forEach(word => {
+            word.addEventListener('click', () => {
+                // Убираем подсветку у других слов
+                words.forEach(w => w.classList.remove('active'));
+                // Добавляем текущему
+                word.classList.add('active');
+                // Выводим перевод в коробку снизу
+                box.innerHTML = `<strong>${word.innerText}:</strong> ${word.getAttribute('data-translation')}`;
+                box.style.background = '#e3f2fd';
+            });
+        });
+    </script>
+</body>
+</html>
